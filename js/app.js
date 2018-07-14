@@ -13,6 +13,7 @@
    */
 
    function setMyLightGreen(){
+    console.log("setMyLightGreen invoked!")
     console.log(this);
     console.log(this.dataset.lightId);
 
@@ -33,6 +34,7 @@
    */
 
    function setMyLightClass(event, desiredClass){
+     console.log("setMyLightClass invoked!");
      console.log(this);
      console.log(this.dataset.lightId);
 
@@ -71,7 +73,11 @@
    * to set the context to the correct object (the current context)
    */
 
-  btn1.addEventListener("click", function(){ setMyLightGreen.apply(this); });
+  btn1.addEventListener("click", function(){ 
+    console.log("btn1 clicked")
+    console.log(this);
+    setMyLightGreen.apply(this); 
+  });
 
   /*
    * Add a click event listener to btn2
@@ -82,11 +88,10 @@
    * to set the context to the correct object
    */
 
-  //  btn2.addEventListener("click", myFunc2);
-
-  //  const myFunc2 = () => {
-  //    return setMyLightGreen.apply(this);
-  //  }
+   //func is the functionName. It isn't necessary, which is why "() => ...." works.
+   // You can create arrow functions with just the parameters and the 
+  // btn2.addEventListener("click", func = () => setMyLightGreen.apply(btn2));
+  btn2.addEventListener("click", () => setMyLightGreen.apply(btn2));
 
   /*
    * Add a click event listener to btn3
