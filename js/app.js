@@ -168,6 +168,9 @@
    *   and passing two aditional arguments, event and 'light-green'
    */
 
+   btn8.addEventListener("click", function(event){
+     setMyLightClass.call(btn8, event, "light-green");
+   });
 
   /*
    * Add a click event listener to btn9
