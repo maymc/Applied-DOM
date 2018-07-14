@@ -183,6 +183,7 @@
    *   and passing two aditional arguments, event and 'light-green'
    */
 
+   btn9.addEventListener("click", (event) => setMyLightClass.call(btn9, event, "light-green"));
 
   /*
    * Declare a new const named setLight10Green
