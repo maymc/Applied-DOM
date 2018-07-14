@@ -128,11 +128,7 @@
    *   and passing two aditional arguments, event and 'light-green'
    */
 
-  // btn5.addEventListener("click", myFunc5);
-
-  // var myFunc5 = function (event){
-  //   setMyLightClass.apply(this, [event, "light-green"]);
-  // }
+  btn5.addEventListener("click", (event) => setMyLightClass.apply(btn5, [event, "light-green"]));
 
 
   /*
