@@ -73,10 +73,10 @@
    * to set the context to the correct object (the current context)
    */
 
-  btn1.addEventListener("click", function(){ 
+  btn1.addEventListener("click", function(){ //This is a callback
     console.log("btn1 clicked")
     console.log(this);
-    setMyLightGreen.apply(this); 
+    setMyLightGreen.apply(this);  //this is talking about btn1, you need to bind it to the dataset variable from the actual DOM node. this and btn1 is the same thing so you can use either in this problem. 
   });
 
   /*
@@ -92,6 +92,8 @@
    // You can create arrow functions with just the parameters and the 
   // btn2.addEventListener("click", func = () => setMyLightGreen.apply(btn2));
   btn2.addEventListener("click", () => setMyLightGreen.apply(btn2));
+
+  //Important for fat arrow: implicit binding to this context
 
   /*
    * Add a click event listener to btn3
@@ -289,5 +291,25 @@
 
    btn15.addEventListener("click", setMyLightClass.bind(btn15, event, "light-green"));
 
+   //Other ways to do it but this would invoke it immediately
+  //  btn.addEventListener("click", setMyLightClass(null, 'light-green'.bind(this)()));
+  //  setMyLightGreen.bind(this)();
+  //  setMyLightGreen.call(this)
+  //  setMyLightGreen.apply(this)
+
 
 }(window));
+
+//how to delay a function execution: make a function like this:
+//the amount of milliseconds and the function they want to execute later on
+const delayExecutionBy = (milliseconds, THEFUNCTION) => {
+  setTimeout(function(){
+    THEFUNCTION()
+  },milliseconds);
+
+  // //Or another way is:
+  //setTimeout(THEFUNCTION(),milliseconds);
+
+}
+
+delayExecutionBy(200, function() { console.log("hi I'm delayed")});
